@@ -56,7 +56,7 @@ console.log(fruitNames(fruits));
 */
 
 function fruitNames(fruits) {
-    // Your code here
+   joshua
 }
 
 /* 05. `getFruitKeys()` - Return a list of all of the keys for each fruit record.
