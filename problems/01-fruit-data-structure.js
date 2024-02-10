@@ -22,7 +22,7 @@ console.log(lastFruitObject(fruits));
 */
 
 function lastFruitObject(fruits) {
-    // Your code here
+    return fruits[fruits.length - 1]
 }
 
 
