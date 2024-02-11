@@ -26,17 +26,9 @@ console.log(addKeyAndValueToOne(fruits, "color", "red", 1));
 
 function addKeyAndValueToOne(array, key, value, index) {
 
-    // if (index >= 0 && index < fruitArray.length) {
-    //     let updatedFruit = { ...fruitArray[index] };
+    array[index][key] = value;
 
-    //     updatedFruit[key] = value;
-
-    //     fruitArray[index - 1] = updatedFruit;
-
-    //     return updatedFruit;
-    // } else {
-    //     return null
-    // }
+    return array[index];
 
 }
 
@@ -50,19 +42,18 @@ console.log(updateKeyName(fruits, "nutritions", "nutrition"));
 
 function updateKeyName(array, oldKey, newKey) {
 
-    // array.forEach(obj => {
+    array.forEach(obj => {
 
-    //     if (oldKey in obj) {
-    //         let oldValue = obj[oldKey];
-    //     }
+        if (oldKey in obj) {
+            let oldValue = obj[oldKey];
 
-    //     delete obj[oldKey];
+            delete obj[oldKey];
 
-    //     obj[newKey] = oldValue;
+            obj[newKey] = oldValue;
+        }
+    })
 
-    // })
-
-    // return array
+    return array
 }
 
 /* 10. `updateIdValues()` - Change all of the "id" values to six-character
@@ -79,7 +70,16 @@ console.log(updateIdValues(fruits));
 */
 
 function updateIdValues(array) {
-    // Your code here
+    //000000 + idValue
+
+    let fruitIds = array.map(fruit => {
+        let fruitId = '000000' + fruit.id;
+        let sixCharId = fruitId.slice(-6); //grabs the last 6 characters
+
+        return sixCharId;
+    })
+
+    return fruitIds;
 }
 
 /* 11. `deleteKeysandValues()` - Delete the keyToDelete from the nutritions
@@ -90,12 +90,14 @@ console.log(deleteKeysAndValues(fruits, "sugar"));
 */
 
 function deleteKeysAndValues(array, keyToDelete) {
-    // array.forEach(fruit => {
-    //     let nutritions = fruit.nutritions
-    //     if (nutritions && nutritions[keyToDelete] !== undefined)
-    //         delete fruit.nutritions[keyToDelete];
-    // })
-    // return array;
+    array.forEach(fruit => {
+        let nutritions = fruit.nutritions
+        //if nutritions[keyToDelete] is not undefined or does exist in the object
+        //then delete it
+        if (nutritions[keyToDelete] !== undefined)
+            delete fruit.nutritions[keyToDelete];
+    })
+    return array;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
