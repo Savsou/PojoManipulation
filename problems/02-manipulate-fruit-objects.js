@@ -9,8 +9,13 @@ console.log(addKeyAndValueToAll(fruits, "inStock", true));
 */
 
 function addKeyAndValueToAll(array, key, value) {
-    // Your code here 
+    array.forEach(fruit => {
+        fruit[key] = value;
+    })
+
+    return array
 }
+
 
 /* 08. `addKeyAndValueToOne()` - Return object at the given index array, adding the given key and
 value to that fruit object
@@ -20,7 +25,19 @@ console.log(addKeyAndValueToOne(fruits, "color", "red", 1));
 */
 
 function addKeyAndValueToOne(array, key, value, index) {
-    // Your code here 
+
+    // if (index >= 0 && index < fruitArray.length) {
+    //     let updatedFruit = { ...fruitArray[index] };
+
+    //     updatedFruit[key] = value;
+
+    //     fruitArray[index - 1] = updatedFruit;
+
+    //     return updatedFruit;
+    // } else {
+    //     return null
+    // }
+
 }
 
 /* 09. `updateKeyName()` - Change the old key name to the new key name in all
@@ -32,7 +49,20 @@ console.log(updateKeyName(fruits, "nutritions", "nutrition"));
 */
 
 function updateKeyName(array, oldKey, newKey) {
-    // Your code here 
+
+    // array.forEach(obj => {
+
+    //     if (oldKey in obj) {
+    //         let oldValue = obj[oldKey];
+    //     }
+
+    //     delete obj[oldKey];
+
+    //     obj[newKey] = oldValue;
+
+    // })
+
+    // return array
 }
 
 /* 10. `updateIdValues()` - Change all of the "id" values to six-character
@@ -49,7 +79,7 @@ console.log(updateIdValues(fruits));
 */
 
 function updateIdValues(array) {
-    // Your code here 
+    // Your code here
 }
 
 /* 11. `deleteKeysandValues()` - Delete the keyToDelete from the nutritions
@@ -60,9 +90,14 @@ console.log(deleteKeysAndValues(fruits, "sugar"));
 */
 
 function deleteKeysAndValues(array, keyToDelete) {
-    // Your code here 
+    // array.forEach(fruit => {
+    //     let nutritions = fruit.nutritions
+    //     if (nutritions && nutritions[keyToDelete] !== undefined)
+    //         delete fruit.nutritions[keyToDelete];
+    // })
+    // return array;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
-module.exports = [ addKeyAndValueToAll, addKeyAndValueToOne, updateKeyName, updateIdValues, deleteKeysAndValues ];
+module.exports = [addKeyAndValueToAll, addKeyAndValueToOne, updateKeyName, updateIdValues, deleteKeysAndValues];

@@ -56,7 +56,9 @@ console.log(fruitNames(fruits));
 */
 
 function fruitNames(fruits) {
-    // Your code here
+    let fruitName = fruits.map(fruit => fruit.name);
+
+    return fruitName
 }
 
 /* 05. `getFruitKeys()` - Return a list of all of the keys for each fruit record.
@@ -65,9 +67,25 @@ NOTE: Call a function you previously wrote as a helper function.
 // console.log(getFruitKeys(fruits));
 // // [ 'genus', 'name', 'id', 'family', 'order', 'nutritions' ];
 */
+function getKeysForFruit(fruit) {
+    return Object.keys(fruit);
+}
 
 function getFruitKeys(fruits) {
-    // Your code here
+    let uniqueKeys = [];
+    //for each object, get their keys
+    fruits.forEach((fruit) => {
+        let keys = getKeysForFruit(fruit);
+        //for each key, push them into an array with uniques
+        keys.forEach((key) => {
+            if (!uniqueKeys.includes(key)) {
+                uniqueKeys.push(key)
+            }
+        })
+
+    })
+
+    return uniqueKeys;
 }
 
 
@@ -80,8 +98,25 @@ console.log(getNutritionsKeys(fruits));
 // [ 'carbohydrates', 'protein', 'fat', 'calories', 'sugar' ];
 */
 
+function getKeysForFruit(fruit) {
+    return Object.keys(fruit);
+}
+
 function getNutritionsKeys(fruits) {
-    // Your code here
+    //unique array
+    let uniqueArr = [];
+
+    //if the key is Nutritions, grab the keys within those objects
+    //then push the keys into the unique array
+    for (let fruit of fruits) {
+        for (let key of Object.keys(fruit.nutritions)) {
+            if (!uniqueArr.includes(key)) {
+                uniqueArr.push(key);
+            }
+        }
+    }
+
+    return uniqueArr
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
