@@ -37,11 +37,7 @@ console.log(indexFruitObject(17, fruits));
 */
 
 function indexFruitObject(index, fruits) {
-    if (index >= 0 && index < fruits.length) {
-        return fruits[index];
-    } else {
-        return null;
-    }
+    return fruits[index]
 }
 
 
